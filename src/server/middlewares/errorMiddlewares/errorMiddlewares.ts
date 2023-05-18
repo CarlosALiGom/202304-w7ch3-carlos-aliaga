@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from "express";
-import CustomError from "../../types/customError";
 import createDebug from "debug";
+import CustomError from "../../../types/customError.js";
 
 const debugError = createDebug(
   "shoppingList-api:server:middlewares:errorMidlewares"
