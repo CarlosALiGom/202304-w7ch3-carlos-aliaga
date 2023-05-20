@@ -2,15 +2,15 @@ import bcrypt from "bcryptjs";
 import { type JwtPayload } from "jsonwebtoken";
 import { type Response, type NextFunction, type Request } from "express";
 import jwt from "jsonwebtoken";
-import User from "../../database/models/User.js";
+import User from "../../../database/models/User.js";
 import CustomError from "../../../types/customError.js";
-import { type UserLoginStructure } from "../../../types/types.js";
+import { type UserCredentialStructure } from "../../../types/types.js";
 
 const loginUser = async (
   req: Request<
     Record<string, unknown>,
     Record<string, unknown>,
-    UserLoginStructure
+    UserCredentialStructure
   >,
   res: Response,
   next: NextFunction
