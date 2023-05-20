@@ -1,8 +1,8 @@
 import "./loadEnviroments.js";
 import createDebug from "debug";
-import mongoose from "mongoose";
 import chalk from "chalk";
 import app from "./server/index.js";
+import connectToDatabase from "./database/connectToDatabase.js";
 
 const debug = createDebug("shoppingList-api:root");
 
@@ -16,7 +16,8 @@ if (!mongoDbConnection) {
 }
 
 try {
-  await mongoose.connect(mongoDbConnection);
+  await connectToDatabase(mongoDbConnection);
+
   debug("Connected to DataBase");
 } catch (error: unknown) {
   debug(`Error connecting DataBase: ${chalk.red((error as Error).message)}`);
